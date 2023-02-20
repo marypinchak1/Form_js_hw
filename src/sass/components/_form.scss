@@ -1,7 +1,7 @@
 .forms {
    max-width: 1200px;
    margin: 0 auto;
-   padding: 15px;
+   padding: 30px;
 
    .photo__data {
       display: flex;
@@ -24,9 +24,7 @@
 
 
 
-      &:hover {
-         cursor: pointer;
-      }
+
    }
 
    .change__photo {
@@ -41,6 +39,10 @@
       font-size: 18px;
       line-height: 24px;
       color: #fff;
+
+      &:hover {
+         cursor: pointer;
+      }
    }
 
    .del__photo {
@@ -54,6 +56,10 @@
       font-size: 18px;
       line-height: 24px;
       color: #111;
+
+      &:hover {
+         cursor: pointer;
+      }
    }
 }
 
@@ -76,6 +82,8 @@ form {
          }
       }
    }
+
+
 
    .about__me {
       margin-top: 32px;
@@ -240,4 +248,7 @@ form {
          color: #fff;
       }
    }
+}
+.form__empty input{
+   border: 2px solid #dc3545;
 }
