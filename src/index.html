@@ -59,24 +59,24 @@
         <h3>Досвід роботи</h3>
         <div class="inputs">
           <fieldset class="d-flex">
-            <div class="col-3">
+            <div class="col-6 col-md-3">
               <input class="form-check-input" type="checkbox" id="none-experience" name="none-experience" value="">
               <label for="none-experience">Без досвіду роботи</label>
             </div>
             <!---->
-            <div class="col-3">
+            <div class="col-6 col-md-3">
               <input class="form-check-input" type="checkbox" id="experience-1-3" name="experience-from-1-3" value="">
               <label for="experience-1-3">Від 1 до 3 років</label>
             </div>
           </fieldset>
           <!---->
           <fieldset class="d-flex">
-            <div class="col-3">
+            <div class="col-6 col-md-3">
               <input class="form-check-input" type="checkbox" id="experience-3-6" name="experience-from-3-6" value="">
               <label for="experience-3-6">Від 3 до 6 років</label>
             </div>
             <!---->
-            <div class="col-3">
+            <div class="col-6 col-md-3">
               <input class="form-check-input" type="checkbox" id="experience-more-6" name="experience-more-6" value="">
               <label for="experience-more-6">Більше 6 років</label>
             </div>
@@ -100,31 +100,19 @@
       </div>
     </form>
     <hr>
-<div>
-  <h3>Ваші дані</h3>
-  <p>Ім'я: <span id="fname"></span></p>
-  <p>Прізвище: <span id="lname"></span></p>
-  <p>Про мене: <span id="about"></span></p>
-  <p>Локація: <span id="location"></span></p>
-  <p>Мови спілкування: <span id="languages"></span></p>
-  <p>Досвід роботи: <span id="experience"></span></p>
-  <p>Термін, який готова працювати: <span id="term"></span></p>
-</div>
+    <div  class="user__data">
+      <h3>Ім'я: <span id="fname__data"></span></h3>
+      <h3>Прізвище: <span id="lname__data"></span></h3>
+      <h3>Про мене: <span id="about__data"></span></h3>
+      <h3>Локація: <span id="location__data"></span></h3>
+      <h3>Мови спілкування: <span id="languages__data"></span></h3>
+      <h3>Досвід роботи: <span id="experience__data"></span></h3>
+      <h3>Термін, який готова працювати: <span id="term__data"></span></h3>    
+    </div>
   </section>
   <div style="display: none!important;">
   </div>
-  <div style="display: none!important;" class="success__message">
-    <div class="success__message__container">
-      <div class="success__message__content">
-        <div class="success__message__content__text">
-          <h3>Дякуємо за реєстрацію!</h3>
-          <p>Ваші дані успішно збережені</p>
-        </div>
-        <div class="success__message__content__btn">
-          <button type="button" class="success__message__btn">Закрити</button>
-        </div>
-      </div>
-    </div>
+
 
   @@include("icons/_icons.html")
 

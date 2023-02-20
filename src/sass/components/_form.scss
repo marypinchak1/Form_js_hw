@@ -1,88 +1,109 @@
 .forms {
-   max-width: 1200px;
-   margin: 0 auto;
+   margin: 20px;
    padding: 30px;
+   width: 100%;
 
    .photo__data {
       display: flex;
       align-items: center;
+      width: auto;
 
-      .photo__container {
-         position: relative;
-         border-radius: 50%;
-         margin: 24px;
+      @media screen and (max-width: 480px) {
+         flex-direction: column;
+      }
+
+   }
+
+   .photo__container {
+      position: relative;
+      border-radius: 50%;
+      margin: 24px;
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+
+      img {
+         position: absolute;
          width: 80px;
          height: 80px;
-         cursor: pointer;
-
-         img {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-         }
-      }
-
-
-
-
-   }
-
-   .change__photo {
-      padding: 9px 20px;
-      border-radius: 24px;
-      margin-right: 10px;
-      border: 2px solid #1e3173;
-      background-color: #1e3173;
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 24px;
-      color: #fff;
-
-      &:hover {
-         cursor: pointer;
+         border-radius: 50%;
       }
    }
 
-   .del__photo {
-      padding: 9px 20px;
-      border-radius: 24px;
-      border: 2px solid #111;
-      background-color: #f5f5f5;
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 24px;
-      color: #111;
 
-      &:hover {
-         cursor: pointer;
-      }
+
+
+}
+
+.change__photo {
+   padding: 9px 20px;
+   border-radius: 24px;
+   margin-right: 10px;
+   border: 2px solid #1e3173;
+   background-color: #1e3173;
+   font-family: "Roboto";
+   font-style: normal;
+   font-weight: 600;
+   font-size: 18px;
+   line-height: 24px;
+   color: #fff;
+   white-space: nowrap;
+
+   @media screen and (max-width: 480px) {
+      margin-bottom: 10px;
+   }
+
+   &:hover {
+      cursor: pointer;
    }
 }
 
+.del__photo {
+   padding: 9px 20px;
+   border-radius: 24px;
+   border: 2px solid #111;
+   background-color: #f5f5f5;
+   font-family: "Roboto";
+   font-style: normal;
+   font-weight: 600;
+   font-size: 18px;
+   line-height: 24px;
+   color: #111;
+
+   @media screen and (max-width: 480px) {
+      margin-bottom: 10px;
+   }
+
+   &:hover {
+      cursor: pointer;
+   }
+}
+
+
 form {
-   margin-top: 66px;
+
    margin-bottom: 49px;
 
    .user__data {
       display: table-caption;
 
       input {
-         width: 360px;
          height: 48px;
          border: 1px solid rgba(30, 49, 115, 0.3);
          border-radius: 8px;
          padding: 0 15px;
+         margin-bottom: 16px;
 
-         &:first-child {
-            margin-bottom: 16px;
+         @media screen and (max-width: 768px) {
+            min-width: 100%;
          }
       }
+
+      &:first-child {
+         margin-bottom: 16px;
+      }
    }
+
 
 
 
@@ -104,6 +125,10 @@ form {
          padding: 16px;
          border: 1px solid rgba(30, 49, 115, 0.3);
          border-radius: 8px;
+
+         @media screen and (max-width: 768px) {
+            max-width: 100%;
+         }
       }
    }
 
@@ -125,6 +150,10 @@ form {
          padding: 16px;
          border: 1px solid rgba(30, 49, 115, 0.3);
          border-radius: 8px;
+
+         @media screen and (max-width: 768px) {
+            width: 100%;
+         }
       }
    }
 
@@ -146,6 +175,10 @@ form {
          padding: 16px;
          border: 1px solid rgba(30, 49, 115, 0.3);
          border-radius: 8px;
+
+         @media screen and (max-width: 768px) {
+            width: 100%;
+         }
       }
    }
 
@@ -231,7 +264,7 @@ form {
    }
 
    .save__changes {
-      width: 720px;
+      width: 100%;
       display: flex;
       justify-content: end;
       margin-top: 94px;
@@ -249,7 +282,4 @@ form {
          color: #fff;
       }
    }
-}
-.form__empty input{
-   border: 2px solid #dc3545;
 }

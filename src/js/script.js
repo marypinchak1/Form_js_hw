@@ -82,20 +82,59 @@ $(".save__btn").click(() => {
 
   // Show the success message
   alert("Дані успішно збережено");
-  
-
 
 
   // show data from local storage on page
+if (localStorage.getItem("userData")) {
   const showUserData = JSON.parse(localStorage.getItem("userData"));
-  const lastUserData = showUserData[showUserData.length - 1];
-  $("#photo").attr("src", lastUserData.photo);
-  $("#fname").val(lastUserData.name);
-  $("#lname").val(lastUserData.surname);
-  $("#about").val(lastUserData.about);
-  $("#location").val(lastUserData.location);
-  $("#languages").val(lastUserData.languages);
-  // Call the function to show user data
-  // (assuming that this function is defined elsewhere)
-  showUserData();
-});
+  if (showUserData.length > 0) {
+    const lastUserData = showUserData[showUserData.length - 1];
+    $("#photo").attr("src", lastUserData.photo);
+    $("#fname").val(lastUserData.name);
+    $("#lname").val(lastUserData.surname);
+    $("#about").val(lastUserData.about);
+    $("#location").val(lastUserData.location);
+    $("#languages").val(lastUserData.languages);
+  }
+  
+}
+
+// Inner function to show user data into Html code
+const showUserData = () => {
+  // Get user data from local storage
+  const userData = JSON.parse(localStorage.getItem("userData"));
+
+
+  // Clear the user data container
+  $(".user__data").html("");
+
+  // Loop through the user data and add it to the user data container
+  userData.forEach((data) => {
+    $(".user__data").append(`
+      <div class="user__data__item">
+        <div class="user__data__item__photo">
+          <img src="${data.photo}" alt="photo">
+        </div>
+        <div class="user__data__item__info">
+          <div class="user__data__item__info__name">
+            <span>${data.name}</span>
+            <span>${data.surname}</span>
+          </div>  
+          <div class="user__data__item__info__about">
+            <span>${data.about}</span>
+          </div>
+          <div class="user__data__item__info__location">
+            <span>${data.location}</span>
+          </div>
+          <div class="user__data__item__info__languages">
+            <span>${data.languages}</span>
+          </div>
+        </div>
+      </div>
+    `);
+  });
+};
+// Call the function to show user data
+showUserData();
+
+})
