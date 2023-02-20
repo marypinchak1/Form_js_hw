@@ -1,73 +1,101 @@
-// Wait for the DOM to finish loading
 $(document).ready(function () {
+  // Wait for the DOM to finish loading
+
+  // Show the file manager dialog and wait for a file to be selected
+  const input = $("<input type='file'>");
+  input.on("change", function () {
+    // Read the selected file as a data URL
+    const reader = new FileReader();
+    reader.onload = event => {
+      $("#photo").attr("src", event.target.result);
+    };
+    reader.readAsDataURL(input[0].files[0]);
+  });
 
   // Attach a click event handler to the photo and change__photo elements
-  $('#photo, .change__photo').click(function () {
-  
-    // Show the file manager dialog and wait for a file to be selected
-    const input = $('<input type="file">');
-    input.on('change', function () {
-
-      // Read the selected file as a data URL
-      const reader = new FileReader();
-      reader.onload = function (event) {
-        $('#photo').attr('src', event.target.result);
-      };
-      reader.readAsDataURL(input[0].files[0]);
-
-    });
+  $(".photo__container").click(() => {
     input.click();
-
-    // Add a click event listener to the "Видалити" button
-    $('.del__photo').on('click', function () {
-      // Remove the photo by targeting the img element by its ID and calling the remove() function
-      $('#photo').remove();
-    });
-
+  });
+  $(".change__photo").click(() => {
+    input.click();
   });
 
+  // Add a click event listener to the "Видалити" button using event delegation
+  $(document).on("click", ".del__photo", () => {
+    // Remove the photo from local storage
+    localStorage.removeItem("photo");
+
+    // Remove the photo from the page
+    $("#photo").attr("src", "./img/img-Girl.svg");
+  });
 });
 
-function getUserData() {
 
-  // Get the form fields
-  const FORM = document.querySelector("form");
-  const FNAME = document.getElementById("fname");
-  const LNAME = document.getElementById("lname");
-  const ABOUT_ME = document.getElementById("about");
-  const LOCATION_DATA = document.getElementById("location");
-  const LANGUAGES_DATA = document.getElementById("languages");
+// click on the button with class "save__btn"
+$(".save__btn").click(() => {
 
-  // Add an event listener to the form
-  FORM.addEventListener("submit", (event) => {
-    // Prevent the default behavior of the form
-    event.preventDefault();
-    // Get the values of the form fields
-    const FIRST_NAME = FNAME.value;
-    const LAST_NAME = LNAME.value;
-    const ABOUT = ABOUT_ME.value;
-    const LOC_DATA = LOCATION_DATA.value;
-    const LANG_DATA = LANGUAGES_DATA.value;
+  // check all required fields
+  if (
+    $("#fname").val() === "" ||
+    $("#lname").val() === "" ||
+    $("#about").val() === "" ||
+    $("#location").val() === "" ||
+    $("#languages").val() === ""
+  ) {
+    // Show the error message
+    alert("Заповніть всі поля");
+    return;
+  }    
 
-    // Create an object with the data
-    const dataUser = {
-      First_Name: FIRST_NAME,
-      Last_Name: LAST_NAME,
-      About_me: ABOUT,
-      Location: LOC_DATA,
-      Languages: LANG_DATA,
-    }
+  // Get user data from form
+  const getUserData = () => {
+    const userData = {
+      id: new Date().getTime(), // add a unique id to each dataUser object
+      photo: $("#photo").attr("src"),
+      name: $("#fname").val(),
+      surname: $("#lname").val(),
+      about: $("#about").val(),
+      location: $("#location").val(),
+      languages: $("#languages").val(),
+    };
+    return userData;
+  };
 
-    // Get existing data from local storage or create an empty array
-    let usersData = JSON.parse(localStorage.getItem("userData")) || [];
+  // Get existing user data from local storage, or create an empty array if it doesn't exist
+  const existingUserData = JSON.parse(localStorage.getItem("userData")) || [];
 
-    // Add the new data to the existing array
-    usersData.push(dataUser);
+  // Get user data from form
+  const userData = getUserData();
 
-    // Save the updated array to local storage
-    localStorage.setItem("userData", JSON.stringify(usersData));
+  // Add the new user data to the existing array of user data
+  existingUserData.push(userData);
 
-    console.log(usersData);
-  });
-};
-getUserData();
+  // Save the updated array of user data to local storage
+  localStorage.setItem("userData", JSON.stringify(existingUserData));
+
+  // clear the form
+  $("#fname").val("");
+  $("#lname").val("");
+  $("#about").val("");
+  $("#location").val("");
+  $("#languages").val("");
+
+  // Show the success message
+  alert("Дані успішно збережено");
+  
+
+
+
+  // show data from local storage on page
+  const showUserData = JSON.parse(localStorage.getItem("userData"));
+  const lastUserData = showUserData[showUserData.length - 1];
+  $("#photo").attr("src", lastUserData.photo);
+  $("#fname").val(lastUserData.name);
+  $("#lname").val(lastUserData.surname);
+  $("#about").val(lastUserData.about);
+  $("#location").val(lastUserData.location);
+  $("#languages").val(lastUserData.languages);
+  // Call the function to show user data
+  // (assuming that this function is defined elsewhere)
+  showUserData();
+});

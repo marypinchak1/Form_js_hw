@@ -16,16 +16,14 @@
 
 <body>
   <section class="forms">
-    <div class="photo__data">
-      <div class="photo__container">
-        <img src="img/img-Girl.svg" alt="">
-        <img id="photo" src="./img/img-Girl.svg" alt="img">
-      </div>
-      <button type="none" class="change__photo">Змінити фото</button>
-      <button type="none" class="del__photo">Видалити</button>
-    </div>
-
     <form action="">
+      <div class="photo__data">
+        <div class="photo__container">
+          <img id="photo" src="./img/img-Girl.svg" alt="img">
+        </div>
+        <button type="none" class="change__photo">Змінити фото</button>
+        <button type="none" class="del__photo">Видалити</button>
+      </div>
 
       <div class="user__data">
         <input type="text" id="fname" name="fname" placeholder="Ім'я" required value="">
@@ -102,43 +100,31 @@
       </div>
     </form>
     <hr>
-
-    <div>
-      <h3>Ваші дані</h3>
-      <div class="user__data">
-        <p>Ім'я: <span id="fname__data"></span></p>
-        <p>Прізвище: <span id="lname__data"></span></p>
-      </div>
-
-      <div class="about__me">
-        <h3>Про мене</h3>
-        <p id="about__data"></p>
-      </div>
-
-      <div class="location__data">
-        <h3>Локація</h3>
-        <p id="location__data"></p>
-      </div>
-
-      <div class="languages__data">
-        <h3>Мови спілкування</h3>
-        <p id="languages__data"></p>
-      </div>
-
-      <div class="job__experience">
-        <h3>Досвід роботи</h3>
-        <p id="job__data"></p>
-      </div>
-
-      <div class="term__jobs">
-        <h3>Термін, який готова працювати</h3>
-        <p id="term__data"></p>
-      </div>  
-    </div>
-   
+<div>
+  <h3>Ваші дані</h3>
+  <p>Ім'я: <span id="fname"></span></p>
+  <p>Прізвище: <span id="lname"></span></p>
+  <p>Про мене: <span id="about"></span></p>
+  <p>Локація: <span id="location"></span></p>
+  <p>Мови спілкування: <span id="languages"></span></p>
+  <p>Досвід роботи: <span id="experience"></span></p>
+  <p>Термін, який готова працювати: <span id="term"></span></p>
+</div>
   </section>
   <div style="display: none!important;">
   </div>
+  <div style="display: none!important;" class="success__message">
+    <div class="success__message__container">
+      <div class="success__message__content">
+        <div class="success__message__content__text">
+          <h3>Дякуємо за реєстрацію!</h3>
+          <p>Ваші дані успішно збережені</p>
+        </div>
+        <div class="success__message__content__btn">
+          <button type="button" class="success__message__btn">Закрити</button>
+        </div>
+      </div>
+    </div>
 
   @@include("icons/_icons.html")
 
@@ -147,4 +133,5 @@
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="js/script.js"></script>
 </body>
+
 </html>
