@@ -16,7 +16,8 @@
 
 <body>
   <section class="forms">
-    <form action="">
+    <div id="error"></div>
+    <form action="/" >
       <div class="photo__data">
         <div class="photo__container">
           <img id="photo" src="./img/img-Girl.svg" alt="img">
@@ -25,33 +26,33 @@
         <button type="none" class="del__photo">Видалити</button>
       </div>
 
-      <div class="user__data">
-        <input type="text" id="fname" name="fname" placeholder="Ім'я" required value="">
-        <input type="text" id="lname" name="lname" placeholder="Прізвище" required value="">
+      <div class="user__name">
+        <input type="text" class="form-control" id="fname" name="fname" placeholder="Ім'я" required value="">
+        <input type="text" class="form-control" id="lname" name="lname" placeholder="Прізвище" required value="">
       </div>
 
       <div class="about__me">
         <h3>Про мене</h3>
-        <textarea name="form-text" id="about" cols="100%" required rows="5"></textarea>
+        <textarea name="form-text" class="form-control" id="about" cols="100%" required rows="5"></textarea>
       </div>
 
       <div class="location__data">
         <h3>Локація</h3>
-        <select name="form-text" id="location">
-          <option value="cha">оберіть локацію</option>
-          <option value="lviv">Львів</option>
-          <option value="odesa">Одеса</option>
-          <option value="kyiv">Київ</option>
+        <select name="form-text" class="form-control" id="location" required>
+          <option value="0" disabled selected>--оберіть локацію--</option>
+          <option value="Lviv">Львів</option>
+          <option value="Odesa">Одеса</option>
+          <option value="Kyiv">Київ</option>
         </select>
       </div>
 
       <div class="languages__data">
         <h3>Мови спілкування</h3>
-        <select name="form-text" id="languages">
-          <option value="">оберіть локацію</option>
-          <option value="Eng">English</option>
-          <option value="Esp">Spain</option>
-          <option value="Pl">Poland</option>
+        <select name="form-text" class="form-control" id="languages" required>
+          <option value="0" disabled selected>--оберіть локацію--</option>
+          <option value="English">English</option>
+          <option value="Spain">Spain</option>
+          <option value="Poland">Poland</option>
         </select>
       </div>
 
@@ -60,7 +61,7 @@
         <div class="inputs">
           <fieldset class="d-flex">
             <div class="col-6 col-md-3">
-              <input class="form-check-input" type="checkbox" id="none-experience" name="none-experience" value="">
+              <input class="form-check-input " type="checkbox" id="none-experience" name="none-experience" value="">
               <label for="none-experience">Без досвіду роботи</label>
             </div>
             <!---->
@@ -108,6 +109,7 @@
       <h3>Мови спілкування: <span id="languages__data"></span></h3>
       <h3>Досвід роботи: <span id="experience__data"></span></h3>
       <h3>Термін, який готова працювати: <span id="term__data"></span></h3>    
+      
     </div>
   </section>
   <div style="display: none!important;">
